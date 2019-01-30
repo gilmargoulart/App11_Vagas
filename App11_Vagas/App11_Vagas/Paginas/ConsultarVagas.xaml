@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App11_Vagas.Paginas.ConsultarVagas">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Vagas" FontSize="24"/>
+                <Label Text="Encontre seu emprego aqui!" FontSize="12"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="BtnAdd" Text="Adicionar" Clicked="BtnAdd_Clicked" />
+                <Button x:Name="BtnListagemVagas" Text="Vagas" Clicked="BtnListagemVagas_Clicked" />
+            </StackLayout>
+            <Entry Placeholder="Pesquisar"/>
+            <Label Text="15 vagas encontradas"/>
+            <ListView>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding NomeVaga}" Grid.Column="0" FontAttributes="Bold"/>
+                            <Label Text="{Binding Empresa}" Grid.Column="0" />
+                            <Label Text="{Binding Cidade}" Grid.Column="0" />
+
+                            <Label Text="Editar" Grid.Column="1">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="BtnEditar_Tapped" CommandParameter="{Binding .}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <Label Text="|" Grid.Column="1"/>
+                            <Label Text="Excluir" Grid.Column="1">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="BtnExcluir_Tapped" CommandParameter="{Binding .}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
