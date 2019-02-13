@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App11_Vagas.Modelos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,11 @@ namespace App11_Vagas.Paginas
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class DetalharVaga : ContentPage
 	{
-		public DetalharVaga ()
+		public DetalharVaga (Vaga vaga)
 		{
 			InitializeComponent ();
+
+            BindingContext = vaga;
 		}
 	}
 }

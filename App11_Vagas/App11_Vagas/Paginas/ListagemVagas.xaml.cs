@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App11_Vagas.Modelos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,17 +20,19 @@ namespace App11_Vagas.Paginas
 
         private void BtnAdd_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new CadastrarVaga());
         }
 
         private void BtnListagemVagas_Clicked(object sender, EventArgs e)
         {
-
+            //Navigation.PushAsync(new ListagemVagas());
         }
 
         private void BtnMaisDetalhes_Tapped(object sender, EventArgs e)
         {
-
+            Label lblDetalhe = (Label)sender;
+            Vaga vaga = (Vaga)((TapGestureRecognizer)lblDetalhe.GestureRecognizers[0]).CommandParameter;
+            Navigation.PushAsync(new DetalharVaga(vaga));
         }
     }
 }

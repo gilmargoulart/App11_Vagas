@@ -10,7 +10,7 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Button x:Name="BtnAdd" Text="Adicionar" Clicked="BtnAdd_Clicked" />
-                <Button x:Name="BtnListagemVagas" Text="Vagas" Clicked="BtnListagemVagas_Clicked" />
+                <!-- <Button x:Name="BtnListagemVagas" Text="Vagas" Clicked="BtnListagemVagas_Clicked" /> -->
             </StackLayout>
             <Entry Placeholder="Pesquisar"/>
             <Label Text="15 vagas encontradas"/>
@@ -25,10 +25,11 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            <Label Text="{Binding NomeVaga}" Grid.Column="0" FontAttributes="Bold"/>
-                            <Label Text="{Binding Empresa}" Grid.Column="0" />
-                            <Label Text="{Binding Cidade}" Grid.Column="0" />
-
+                            <StackLayout Grid.Column="0">
+                                <Label Text="{Binding NomeVaga}" FontAttributes="Bold"/>
+                                <Label Text="{Binding Empresa}" />
+                                <Label Text="{Binding Cidade}" />
+                            </StackLayout>
                             <Label Text="+Detalhe" Grid.Column="1">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="BtnMaisDetalhes_Tapped" CommandParameter="{Binding .}"/>
